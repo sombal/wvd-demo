@@ -9,7 +9,7 @@
             "value": "https://raw.githubusercontent.com/Azure/RDS-Templates/master/ARM-wvd-templates/DSC/Configuration.zip"
         },
         "hostpoolName": {
-            "value": "" // TODO: Fill in parameter value
+            "value": "01_wvd_demo"
         },
         "hostpoolFriendlyName": {
             "value": ""
@@ -18,7 +18,7 @@
             "value": ""
         },
         "location": {
-            "value": "" // TODO: Fill in parameter value
+            "value": "westeurope"
         },
         "workSpaceName": {
             "value": ""
@@ -33,7 +33,7 @@
             "value": ""
         },
         "addToWorkspace": {
-            "value": false // TODO: Fill in parameter value
+            "value": false
         },
         "administratorAccountUsername": {
             "value": ""
@@ -114,7 +114,7 @@
             "value": []
         },
         "hostpoolType": {
-            "value": "" // TODO: Fill in parameter value
+            "value": "Pooled"
         },
         "personalDesktopAssignmentType": {
             "value": ""
@@ -132,7 +132,7 @@
             "value": ""
         },
         "tokenExpirationTime": {
-            "value": "" // TODO: Fill in parameter value
+            "value": ""
         },
         "hostpoolTags": {
             "value": {}

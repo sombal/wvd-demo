@@ -27,13 +27,13 @@
             "value": ""
         },
         "administratorAccountUsername": {
-            "value": "" // TODO: Fill in parameter value
+            "value": "" 
         },
         "administratorAccountPassword": {
-            "value": "" // TODO: Fill in parameter value
+            "value": ""
         },
         "createAvailabilitySet": {
-            "value": false // TODO: Fill in parameter value
+            "value": false
         },
         "vmResourceGroup": {
             "value": "" // TODO: Fill in parameter value
