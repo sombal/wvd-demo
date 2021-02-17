@@ -687,8 +687,8 @@
       }
     ],
     "outputs": {
-      "output-appGroupName": {
-        "value": "[variables('appGroupName')]",
+      "output-appGroupResId": {
+        "value": "[variables('appGroupResourceId')]",
         "type": "string"
       }
     }
