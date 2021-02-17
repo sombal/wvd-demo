@@ -689,7 +689,7 @@
     "outputs": {
       "output-appGroupResId": {
         "value": "[variables('appGroupResourceId')]",
-        "type": "string"
+        "type": "array"
       }
     }
   }
