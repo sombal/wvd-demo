@@ -2,14 +2,21 @@
 # Get RdsRegistrationInfotoken
 # Import Modules for WVD
 
+param (
+    [Parameter(Mandatory=$true)]
+    [string]
+    $azureSubscriptionID,
+    [Parameter(Mandatory=$true)]
+    [string]
+    $resourceGroupName,
+    [Parameter(Mandatory=$true)]
+    [string]
+    $existingWVDHostPoolName
+)
+
 import-module az.desktopvirtualization
 import-module az.network
 import-module az.compute
-
-$azureSubscriptionID = "your-wvd-sub-id"
-$resourceGroupName = "rg-wvd-Pooled-desktop"
-$existingWVDHostPoolName = "HostPool-Test"
-
 
 #Obtain RdsRegistrationInfotoken
 

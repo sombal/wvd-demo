@@ -9,10 +9,10 @@
             "value": "https://raw.githubusercontent.com/Azure/RDS-Templates/master/ARM-wvd-templates/DSC/Configuration.zip"
         },
         "hostpoolName": {
-            "value": "" // TODO: Fill in parameter value
+            "value": ""
         },
         "hostpoolToken": {
-            "value": "" // TODO: Fill in parameter value
+            "value": ""
         },
         "hostpoolResourceGroup": {
             "value": ""
@@ -36,34 +36,34 @@
             "value": false
         },
         "vmResourceGroup": {
-            "value": "" // TODO: Fill in parameter value
+            "value": ""
         },
         "vmLocation": {
-            "value": "" // TODO: Fill in parameter value
+            "value": ""
         },
         "vmSize": {
-            "value": "" // TODO: Fill in parameter value
+            "value": ""
         },
         "vmInitialNumber": {
-            "value": 0 // TODO: Fill in parameter value
+            "value": 0
         },
         "vmNumberOfInstances": {
-            "value": 0 // TODO: Fill in parameter value
+            "value": 0
         },
         "vmNamePrefix": {
-            "value": "" // TODO: Fill in parameter value
+            "value": ""
         },
         "vmImageType": {
             "value": "Gallery"
         },
         "vmGalleryImageOffer": {
-            "value": ""
+            "value": "Windows-10"
         },
         "vmGalleryImagePublisher": {
-            "value": ""
+            "value": "MicrosoftWindowsDesktop"
         },
         "vmGalleryImageSKU": {
-            "value": ""
+            "value": "20h2-evd"
         },
         "vmImageVhdUri": {
             "value": ""
@@ -72,22 +72,22 @@
             "value": ""
         },
         "vmDiskType": {
-            "value": "" // TODO: Fill in parameter value
+            "value": "StandardSSD_LRS"
         },
         "vmUseManagedDisks": {
-            "value": false // TODO: Fill in parameter value
+            "value": false
         },
         "storageAccountResourceGroupName": {
             "value": ""
         },
         "existingVnetName": {
-            "value": "" // TODO: Fill in parameter value
+            "value": "MCSAz-BS-D-VNET"
         },
         "existingSubnetName": {
-            "value": "" // TODO: Fill in parameter value
+            "value": "WorkloadSubnet"
         },
         "virtualNetworkResourceGroupName": {
-            "value": "" // TODO: Fill in parameter value
+            "value": "MCSAz-BS-D-Global"
         },
         "usePublicIP": {
             "value": false

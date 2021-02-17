@@ -12,10 +12,10 @@
             "value": "01_wvd_demo"
         },
         "hostpoolFriendlyName": {
-            "value": ""
+            "value": "Demo Host Pool"
         },
         "hostpoolDescription": {
-            "value": ""
+            "value": "Demoing WVD ARM deployment"
         },
         "location": {
             "value": "eastus"
