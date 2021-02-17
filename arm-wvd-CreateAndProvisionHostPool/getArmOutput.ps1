@@ -23,6 +23,11 @@ $armOutputObj.PSObject.Properties | ForEach-Object {
     elseif ($type -eq "string") {
         Write-Host "##vso[task.setvariable variable=$keyname]$value"
         Write-Host "Added Azure DevOps variable '$keyname' ('$type') with value '$value'"
+    }
+    elseif ($type -eq "array") {
+        $arrayValue = $value | ConvertTo-Json -Compress
+        Write-Host "##vso[task.setvariable variable=$keyname]$arrayValue"
+        Write-Host "Added Azure DevOps variable '$keyname' ('$type') with value '$arrayValue'"
     } 
     else {
         Throw "Type '$type' is not supported for '$keyname'"
