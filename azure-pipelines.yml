@@ -12,24 +12,24 @@ pool:
   vmImage: ubuntu-latest
 
 stages:
-- stage: DeployHostPool
+- stage: DeployWvdPlatform
   jobs:
   - job: DefineTokenExpirationTime
     steps:
     - task: PowerShell@2
       inputs:
-        filePath: './arm-wvd-CreateAndProvisionHostPool/createhostpoolExpirationTime.ps1'
+        filePath: './createhostpoolExpirationTime.ps1'
     - task: AzureResourceManagerTemplateDeployment@3
       inputs:
         deploymentScope: 'Resource Group'
         azureResourceManagerConnection: 'bs-dev-sub'
         subscriptionId: 'caf17c93-b390-4f78-a96f-4e6a4a34546a'
         action: 'Create Or Update Resource Group'
-        resourceGroupName: '_wvd_demo-01'
+        resourceGroupName: 'hunaug-wvd-demo1'
         location: 'West Europe'
         templateLocation: 'Linked artifact'
-        csmFile: './arm-wvd-CreateAndProvisionHostPool/wvd-demo-CreateAndProvisionHostPool.json'
-        csmParametersFile: './arm-wvd-CreateAndProvisionHostPool/wvd-demo-CreateAndProvisionHostPool.parameters.json'
-        overrideParameters: '-administratorAccountUsername $(bs-DomainAdminUser) -administratorAccountPassword $(bs-DomainAdminPassword) -tokenExpirationTime $(ExpirationTime)'
+        csmFile: './wvd-demo-deploy-platform.template.json'
+        csmParametersFile: './wvd-demo-deploy-platform.template.json'
+        overrideParameters: '-tokenExpirationTime $(ExpirationTime)'
         deploymentMode: 'Incremental'
-        deploymentName: '_wvd_demo_01_hp_deployment'
+        deploymentName: 'wvd_demo1_hp_deployment'

@@ -1,0 +1,124 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "metadata_location": {
+            "defaultValue": "eastus",
+            "type": "String"
+        },
+        "hostpool_name": {
+            "defaultValue": "wvd-demo-hp1",
+            "type": "String"
+        },
+        "hostpool_friendly_name": {
+            "defaultValue": "Demo Hostpool",
+            "type": "String"
+        },
+        "hostpool_description": {
+            "defaultValue": "Demo Hostpool",
+            "type": "String"
+        },
+        "hostpool_type": {
+            "allowedValues": [
+                "Personal",
+                "Pooled"
+            ],
+            "defaultValue": "Pooled",
+            "type": "String"
+        },
+        "hostpool_max_sessionlimit": {
+            "defaultValue": 99999,
+            "type": "Int"
+        },
+        "hostpool_loadbalancer_type": {
+            "allowedValues": [
+                "BreadthFirst",
+                "DepthFirst",
+                "Persistent"
+            ],
+            "defaultValue": "BreadthFirst",
+            "type": "String"
+        },
+        "tokenExpirationTime": {
+            "type": "string"
+        },
+        "workspace_name": {
+            "defaultValue": "wvd-demo-ws1",
+            "type": "String"
+        }
+    },
+    "variables": {
+        "desktop_appgroup_name": "[concat(parameters('hostpool_name'), '-dag')]",
+        "remoteapp_appgroup_name": "[concat(parameters('hostpool_name'), '-app')]"
+    },
+    "resources": [
+        {
+            "type": "Microsoft.DesktopVirtualization/hostpools",
+            "apiVersion": "2020-11-02-preview",
+            "name": "[parameters('hostpool_name')]",
+            "location": "[parameters('metadata_location')]",
+            "properties": {
+                "friendlyName": "[parameters('hostpool_friendly_name')]",
+                "description": "[parameters('hostpool_description')]",
+                "hostPoolType": "[parameters('hostpool_type')]",
+                "maxSessionLimit": "[parameters('hostpool_max_sessionlimit')]",
+                "loadBalancerType": "[parameters('hostpool_loadbalancer_type')]",
+                "validationEnvironment": false,
+                "registrationInfo": {
+                    "expirationTime": "[parameters('tokenExpirationTime')]",
+                    "token": null,
+                    "registrationTokenOperation": "Update"
+                },
+                "preferredAppGroupType": "Desktop",
+                "startVMOnConnect": false
+            }
+        },
+        {
+            "type": "Microsoft.DesktopVirtualization/applicationgroups",
+            "apiVersion": "2020-11-02-preview",
+            "name": "[variables('desktop_appgroup_name')]",
+            "location": "[parameters('metadata_location')]",
+            "dependsOn": [
+                "[resourceId('Microsoft.DesktopVirtualization/hostpools', parameters('hostpool_name'))]"
+            ],
+            "kind": "Desktop",
+            "properties": {
+                "hostPoolArmPath": "[resourceId('Microsoft.DesktopVirtualization/hostpools', parameters('hostpool_name'))]",
+                "description": "Default Desktop Application Group",
+                "friendlyName": "Default Desktop Application Group",
+                "applicationGroupType": "Desktop"
+            }
+        },
+        {
+            "type": "Microsoft.DesktopVirtualization/applicationgroups",
+            "apiVersion": "2020-11-02-preview",
+            "name": "[variables('remoteapp_appgroup_name')]",
+            "location": "[parameters('metadata_location')]",
+            "dependsOn": [
+                "[resourceId('Microsoft.DesktopVirtualization/hostpools', parameters('hostpool_name'))]"
+            ],
+            "kind": "RemoteApp",
+            "properties": {
+                "hostPoolArmPath": "[resourceId('Microsoft.DesktopVirtualization/hostpools', parameters('hostpool_name'))]",
+                "description": "Default Remote Application Group",
+                "friendlyName": "Default Remote Application Group",
+                "applicationGroupType": "RemoteApp"
+            }
+        },
+        {
+            "type": "Microsoft.DesktopVirtualization/workspaces",
+            "apiVersion": "2020-11-02-preview",
+            "name": "[parameters('workspace_name')]",
+            "location": "[parameters('metadata_location')]",
+            "dependsOn": [
+                "[resourceId('Microsoft.DesktopVirtualization/applicationgroups', variables('desktop_appgroup_name'))]"
+            ],
+            "properties": {
+                "applicationGroupReferences": [
+                    "[resourceId('Microsoft.DesktopVirtualization/applicationgroups', variables('desktop_appgroup_name'))]",
+                    "[resourceId('Microsoft.DesktopVirtualization/applicationgroups', variables('remoteapp_appgroup_name'))]"
+                ]
+            }
+        }
+    ]
+}
