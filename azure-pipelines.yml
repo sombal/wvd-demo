@@ -44,6 +44,7 @@ stages:
           ScriptPath: './createRegistrationInfotoken.ps1'
           azurePowerShellVersion: 'LatestVersion'
           pwsh: true
+          ScriptArguments: '-azureSubscriptionID $(bs-SubscriptionId) -resourceGroupName "hunaug-wvd-demo1" -existingWVDHostPoolName "wvd-demo-hp1"'
       - task: AzureResourceManagerTemplateDeployment@3
         inputs:
           deploymentScope: 'Resource Group'
