@@ -1,0 +1,33 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "metadata_location": {
+            "value": "eastus"
+        },
+        "hostpool_name": {
+            "value": "wvd-demo-hp1"
+        },
+        "hostpool_friendly_name": {
+            "value": "Demo Hostpool"
+        },
+        "hostpool_description": {
+            "value": "Demo Hostpool"
+        },
+        "hostpool_type": {
+            "value": "Pooled"
+        },
+        "hostpool_max_sessionlimit": {
+            "value": 99999
+        },
+        "hostpool_loadbalancer_type": {
+            "value": "BreadthFirst"
+        },
+        "tokenExpirationTime": {
+            "value": ""
+        },
+        "workspace_name": {
+            "value": "wvd-demo-ws1"
+        }
+    }
+}

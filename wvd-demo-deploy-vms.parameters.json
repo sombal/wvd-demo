@@ -1,0 +1,153 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "artifactsLocation": {
+            "value": "https://wvdportalstorageblob.blob.core.windows.net/galleryartifacts/Configuration_1-25-2021.zip"
+        },
+        "nestedTemplatesLocation": {
+            "value": "https://catalogartifact.azureedge.net/publicartifacts/Microsoft.Hostpool-ARM-1.0.22-preview/"
+        },
+        "hostpoolName": {
+            "value": "wvd-demo-hp1"
+        },
+        "hostpoolToken": {
+            "value": null
+        },
+        "vmAdministratorAccountUsername": {
+            "value": "mcsadmin"
+        },
+        "vmAdministratorAccountPassword": {
+            "value": null
+        },
+        "administratorAccountUsername": {
+            "value": "mcsadmin-da@mcsaz.dev"
+        },
+        "administratorAccountPassword": {
+            "value": null
+        },
+        "hostpoolResourceGroup": {
+            "value": "hunaug-wvd-demo1"
+        },
+        "hostpoolProperties": {
+            "value": {
+                "friendlyName": "Demo Hostpool",
+                "description": "Demo Hostpool",
+                "hostPoolType": "Pooled",
+                "personalDesktopAssignmentType": null,
+                "applicationGroupReferences": [
+                    "/subscriptions/caf17c93-b390-4f78-a96f-4e6a4a34546a/resourcegroups/hunaug-wvd-demo1/providers/Microsoft.DesktopVirtualization/applicationgroups/wvd-demo-hp1-app",
+                    "/subscriptions/caf17c93-b390-4f78-a96f-4e6a4a34546a/resourcegroups/hunaug-wvd-demo1/providers/Microsoft.DesktopVirtualization/applicationgroups/wvd-demo-hp1-dag"
+                ],
+                "customRdpProperty": "",
+                "maxSessionLimit": 99999,
+                "loadBalancerType": "BreadthFirst",
+                "validationEnvironment": false,
+                "ring": null,
+                "registrationInfo": {
+                    "expirationTime": "2021-02-28T23:00:00Z",
+                    "token": "eyJhbGciOiJSUzI1NiIsImtpZCI6IkU3MDE1QTU5NzU5N0Y3RDg1MjMyRTRBOTA3QTU0OTYyNzNBNEIxMjAiLCJ0eXAiOiJKV1QifQ.eyJSZWdpc3RyYXRpb25JZCI6ImMzNTBlZDI3LTAzZjQtNDNlOS04YTRmLTY2NWE2NzcwNjdjYSIsIkJyb2tlclVyaSI6Imh0dHBzOi8vcmRicm9rZXItZy11cy1yMC53dmQubWljcm9zb2Z0LmNvbS8iLCJEaWFnbm9zdGljc1VyaSI6Imh0dHBzOi8vcmRkaWFnbm9zdGljcy1nLXVzLXIwLnd2ZC5taWNyb3NvZnQuY29tLyIsIkVuZHBvaW50UG9vbElkIjoiN2E5YWQ2MmMtMDQzMi00YjM1LTgxZWQtNDdlM2QxOWZhMGFkIiwiR2xvYmFsQnJva2VyVXJpIjoiaHR0cHM6Ly9yZGJyb2tlci53dmQubWljcm9zb2Z0LmNvbS8iLCJHZW9ncmFwaHkiOiJVUyIsIm5iZiI6MTYxMzgwODc3NSwiZXhwIjoxNjE0NTUzMjAwLCJpc3MiOiJSREluZnJhVG9rZW5NYW5hZ2VyIiwiYXVkIjoiUkRtaSJ9.y0BFifUjecf2ETmg7S4fL_R5Vm4GUFZbxgzWElUJtQ5KDglWJhNXU9faykR2lvenmn1XMCkLlrkIUnbWtzywP1U_pTffklZ5DRFzqzHas7KaC7xsfFrvAopH6vLHC9QvfEJm6BKK8bsBmOva2aFPy1QwF5-XfSSs-cWXgFL2WP_BO1eKM_9J5bp6xC7jnwGhPce2LNCFCyR0jPl1jQEPJlKSj3yV_mtYx2jADJQQ1UpfLv7tJMnX-SsTPpZtIQ8K0te1cNYUCjHnOeVQRABGPH05P0t9UAhVvdc5bfnU6-u492-X7K0u74_qeK2ybX6IvVaJDpdZGFcuqETWjs5J0A",
+                    "resetToken": false,
+                    "registrationTokenOperation": "None"
+                },
+                "vmTemplate": "{\"domain\":\"mcsaz.dev\",\"galleryImageOffer\":\"office-365\",\"galleryImagePublisher\":\"MicrosoftWindowsDesktop\",\"galleryImageSKU\":\"20h2-evd-o365pp\",\"imageType\":\"Gallery\",\"imageUri\":null,\"customImageId\":null,\"namePrefix\":\"hunaug-wvd\",\"osDiskType\":\"StandardSSD_LRS\",\"useManagedDisks\":true,\"vmSize\":{\"id\":\"Standard_B2ms\",\"cores\":2,\"ram\":8},\"galleryItemId\":\"microsoftwindowsdesktop.office-36520h2-evd-o365pp\"}",
+                "preferredAppGroupType": "Desktop",
+                "migrationRequest": null,
+                "cloudPcResource": false,
+                "startVMOnConnect": false,
+                "ssoadfsAuthority": null,
+                "ssoClientId": null,
+                "ssoClientSecretKeyVaultPath": null,
+                "ssoSecretType": null,
+                "objectId": "7a9ad62c-0432-4b35-81ed-47e3d19fa0ad"
+            }
+        },
+        "hostpoolLocation": {
+            "value": "eastus"
+        },
+        "createAvailabilitySet": {
+            "value": true
+        },
+        "vmInitialNumber": {
+            "value": 0
+        },
+        "vmResourceGroup": {
+            "value": "hunaug-wvd-demo1"
+        },
+        "vmLocation": {
+            "value": "westeurope"
+        },
+        "vmSize": {
+            "value": "Standard_B2ms"
+        },
+        "vmNumberOfInstances": {
+            "value": 2
+        },
+        "vmNamePrefix": {
+            "value": "hunaug-wvd"
+        },
+        "vmImageType": {
+            "value": "Gallery"
+        },
+        "vmDiskType": {
+            "value": "StandardSSD_LRS"
+        },
+        "vmUseManagedDisks": {
+            "value": true
+        },
+        "existingVnetName": {
+            "value": "MCSAz-BS-D-VNET"
+        },
+        "existingSubnetName": {
+            "value": "WorkloadSubnet"
+        },
+        "virtualNetworkResourceGroupName": {
+            "value": "MCSAz-BS-D-Global"
+        },
+        "createNetworkSecurityGroup": {
+            "value": false
+        },
+        "domain": {
+            "value": ""
+        },
+        "ouPath": {
+            "value": ""
+        },
+        "aadJoin": {
+            "value": false
+        },
+        "intune": {
+            "value": false
+        },
+        "availabilitySetTags": {
+            "value": {}
+        },
+        "networkInterfaceTags": {
+            "value": {}
+        },
+        "networkSecurityGroupTags": {
+            "value": {}
+        },
+        "virtualMachineTags": {
+            "value": {}
+        },
+        "imageTags": {
+            "value": {}
+        },
+        "deploymentId": {
+            "value": "ebd74bdc-3073-4418-9f62-a09282e2c09e"
+        },
+        "apiVersion": {
+            "value": "2019-12-10-preview"
+        },
+        "vmGalleryImageOffer": {
+            "value": "office-365"
+        },
+        "vmGalleryImagePublisher": {
+            "value": "MicrosoftWindowsDesktop"
+        },
+        "vmGalleryImageSKU": {
+            "value": "20h2-evd-o365pp"
+        }
+    }
+}
