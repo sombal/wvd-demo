@@ -4,126 +4,69 @@
     "parameters": {
         "nestedTemplatesLocation": {
             "type": "string",
-            "metadata": {
-                "description": "The base URI where artifacts required by this template are located."
-            },
             "defaultValue": "https://catalogartifact.azureedge.net/publicartifacts/Microsoft.Hostpool-ARM-1.0.22-preview"
         },
         "artifactsLocation": {
             "type": "string",
-            "metadata": {
-                "description": "The base URI where artifacts required by this template are located."
-            },
             "defaultValue": "https://wvdportalstorageblob.blob.core.windows.net/galleryartifacts/Configuration.zip"
         },
         "hostpoolName": {
-            "type": "string",
-            "metadata": {
-                "description": "The name of the Hostpool to be created."
-            }
+            "type": "string"
         },
         "hostpoolToken": {
-            "type": "securestring",
-            "metadata": {
-                "description": "The token of the host pool where the session hosts will be added."
-            }
+            "type": "securestring"
         },
         "hostpoolResourceGroup": {
             "type": "string",
-            "metadata": {
-                "description": "The resource group of the host pool to be updated. Used when the host pool was created empty."
-            },
             "defaultValue": ""
         },
         "hostpoolLocation": {
             "type": "string",
-            "metadata": {
-                "description": "The location of the host pool to be updated. Used when the host pool was created empty."
-            },
             "defaultValue": ""
         },
         "hostpoolProperties": {
             "type": "object",
-            "metadata": {
-                "description": "The properties of the Hostpool to be updated. Used when the host pool was created empty."
-            },
             "defaultValue": {}
         },
         "administratorAccountUsername": {
             "type": "string",
-            "metadata": {
-                "description": "A username in the domain that has privileges to join the session hosts to the domain. For example, 'vmjoiner@contoso.com'."
-            },
             "defaultValue": ""
         },
         "administratorAccountPassword": {
             "type": "securestring",
-            "metadata": {
-                "description": "The password that corresponds to the existing domain username."
-            },
             "defaultValue": ""
         },
         "vmAdministratorAccountUsername": {
             "type": "string",
-            "metadata": {
-                "description": "A username to be used as the virtual machine administrator account. The domain administrator username will be used if this parameter is not provided."
-            },
             "defaultValue": ""
         },
         "vmAdministratorAccountPassword": {
             "type": "securestring",
-            "metadata": {
-                "description": "The password associated with the virtual machine administrator account. The domain administrator password will be used if this parameter is not provided."
-            },
             "defaultValue": ""
         },
         "createAvailabilitySet": {
-            "type": "bool",
-            "metadata": {
-                "description": "Whether to create a new availability set for the VMs"
-            }
+            "type": "bool"
         },
         "vmResourceGroup": {
-            "type": "string",
-            "metadata": {
-                "description": "The resource group of the session host VMs."
-            }
+            "type": "string"
         },
         "vmLocation": {
-            "type": "string",
-            "metadata": {
-                "description": "The location of the session host VMs."
-            }
+            "type": "string"
         },
         "vmSize": {
-            "type": "string",
-            "metadata": {
-                "description": "The size of the session host VMs."
-            }
+            "type": "string"
         },
         "vmInitialNumber": {
-            "type": "int",
-            "metadata": {
-                "description": "VM name prefix initial number."
-            }
+            "type": "int"
         },
         "vmNumberOfInstances": {
-            "type": "int",
-            "metadata": {
-                "description": "Number of session hosts that will be created and added to the hostpool."
-            }
+            "type": "int"
         },
         "vmNamePrefix": {
-            "type": "string",
-            "metadata": {
-                "description": "This prefix will be used in combination with the VM number to create the VM name. If using 'rdsh' as the prefix, VMs would be named 'rdsh-0', 'rdsh-1', etc. You should use a unique prefix to reduce name collisions in Active Directory."
-            }
+            "type": "string"
         },
         "vmImageType": {
             "type": "string",
-            "metadata": {
-                "description": "Select the image source for the session host vms. VMs from a Gallery image will be created with Managed Disks."
-            },
             "defaultValue": "Gallery",
             "allowedValues": [
                 "CustomVHD",
@@ -134,37 +77,22 @@
         },
         "vmGalleryImageOffer": {
             "type": "string",
-            "metadata": {
-                "description": "(Required when vmImageType = Gallery) Gallery image Offer."
-            },
             "defaultValue": ""
         },
         "vmGalleryImagePublisher": {
             "type": "string",
-            "metadata": {
-                "description": "(Required when vmImageType = Gallery) Gallery image Publisher."
-            },
             "defaultValue": ""
         },
         "vmGalleryImageSKU": {
             "type": "string",
-            "metadata": {
-                "description": "(Required when vmImageType = Gallery) Gallery image SKU."
-            },
             "defaultValue": ""
         },
         "vmImageVhdUri": {
             "type": "string",
-            "metadata": {
-                "description": "(Required when vmImageType = CustomVHD) URI of the sysprepped image vhd file to be used to create the session host VMs. For example, https://rdsstorage.blob.core.windows.net/vhds/sessionhostimage.vhd"
-            },
             "defaultValue": ""
         },
         "vmCustomImageSourceId": {
             "type": "string",
-            "metadata": {
-                "description": "(Required when vmImageType = CustomImage) Resource ID of the image"
-            },
             "defaultValue": ""
         },
         "vmDiskType": {
@@ -174,138 +102,78 @@
                 "Premium_LRS",
                 "StandardSSD_LRS",
                 "Standard_LRS"
-            ],
-            "metadata": {
-                "description": "The VM disk type for the VM: HDD or SSD."
-            }
+            ]
         },
         "vmUseManagedDisks": {
-            "type": "bool",
-            "metadata": {
-                "description": "True indicating you would like to use managed disks or false indicating you would like to use unmanaged disks."
-            }
+            "type": "bool"
         },
         "storageAccountResourceGroupName": {
             "type": "string",
-            "metadata": {
-                "description": "(Required when vmUseManagedDisks = False) The resource group containing the storage account of the image vhd file."
-            },
             "defaultValue": ""
         },
         "existingVnetName": {
-            "type": "string",
-            "metadata": {
-                "description": "The name of the virtual network the VMs will be connected to."
-            }
+            "type": "string"
         },
         "existingSubnetName": {
-            "type": "string",
-            "metadata": {
-                "description": "The subnet the VMs will be placed in."
-            }
+            "type": "string"
         },
         "virtualNetworkResourceGroupName": {
-            "type": "string",
-            "metadata": {
-                "description": "The resource group containing the existing virtual network."
-            }
+            "type": "string"
         },
         "createNetworkSecurityGroup": {
             "type": "bool",
-            "metadata": {
-                "description": "Whether to create a new network security group or use an existing one"
-            },
             "defaultValue": false
         },
         "networkSecurityGroupId": {
             "type": "string",
-            "metadata": {
-                "description": "The resource id of an existing network security group"
-            },
             "defaultValue": ""
         },
         "networkSecurityGroupRules": {
             "type": "array",
-            "metadata": {
-                "description": "The rules to be given to the new network security group"
-            },
             "defaultValue": []
         },
         "availabilitySetTags": {
             "type": "object",
-            "metadata": {
-                "description": "The tags to be assigned to the availability set"
-            },
             "defaultValue": {}
         },
         "networkInterfaceTags": {
             "type": "object",
-            "metadata": {
-                "description": "The tags to be assigned to the network interfaces"
-            },
             "defaultValue": {}
         },
         "networkSecurityGroupTags": {
             "type": "object",
-            "metadata": {
-                "description": "The tags to be assigned to the network security groups"
-            },
             "defaultValue": {}
         },
         "virtualMachineTags": {
             "type": "object",
-            "metadata": {
-                "description": "The tags to be assigned to the virtual machines"
-            },
             "defaultValue": {}
         },
         "imageTags": {
             "type": "object",
-            "metadata": {
-                "description": "The tags to be assigned to the images"
-            },
             "defaultValue": {}
         },
         "deploymentId": {
             "type": "string",
-            "metadata": {
-                "description": "GUID for the deployment"
-            },
             "defaultValue": ""
         },
         "apiVersion": {
             "type": "string",
-            "metadata": {
-                "description": "WVD api version"
-            },
             "defaultValue": "2019-12-10-preview"
         },
         "ouPath": {
             "type": "string",
-            "metadata": {
-                "description": "OUPath for the domain join"
-            },
             "defaultValue": ""
         },
         "domain": {
             "type": "string",
-            "metadata": {
-                "description": "Domain to join"
-            },
             "defaultValue": ""
         },
         "aadJoin": {
             "type": "bool",
-            "metadata": {
-                "description": "True if AAD Join, false if AD join"
-            },
             "defaultValue": false
         },
         "intune": {
             "type": "bool",
-            "metadata": {
-                "description": "True if intune enrollment is selected.  False otherwise"
-            },
             "defaultValue": false
         }
     },
