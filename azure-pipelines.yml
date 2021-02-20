@@ -33,3 +33,28 @@ stages:
         overrideParameters: '-tokenExpirationTime $(ExpirationTime)'
         deploymentMode: 'Incremental'
         deploymentName: 'wvd_demo1_hp_deployment'
+- stage: AddVmsToHostpool
+  jobs:
+    - job: AddVmsToHostpool
+      steps:
+      - task: AzurePowerShell@5
+        inputs:
+          azureSubscription: 'bs-dev-sub'
+          ScriptType: 'FilePath'
+          ScriptPath: './createRegistrationInfotoken.ps1'
+          azurePowerShellVersion: 'LatestVersion'
+          pwsh: true
+      - task: AzureResourceManagerTemplateDeployment@3
+        inputs:
+          deploymentScope: 'Resource Group'
+          azureResourceManagerConnection: 'bs-dev-sub'
+          subscriptionId: 'caf17c93-b390-4f78-a96f-4e6a4a34546a'
+          action: 'Create Or Update Resource Group'
+          resourceGroupName: 'hunaug-wvd-demo1'
+          location: 'West Europe'
+          templateLocation: 'Linked artifact'
+          csmFile: './wvd-demo-deploy-vms.template.json'
+          csmParametersFile: './wvd-demo-deploy-vms.parameters.json'
+          overrideParameters: '-vmAdministratorAccountPassword $(bs-DefaultPassword) -administratorAccountPassword $(bs-DomainAdminPassword) -hostpoolToken $(RdsRegistrationInfotoken)'
+          deploymentMode: 'Incremental'
+        
