@@ -29,7 +29,7 @@ stages:
         location: 'West Europe'
         templateLocation: 'Linked artifact'
         csmFile: './wvd-demo-deploy-platform.template.json'
-        csmParametersFile: './wvd-demo-deploy-platform.template.json'
+        csmParametersFile: './wvd-demo-deploy-platform.parameters.json'
         overrideParameters: '-tokenExpirationTime $(ExpirationTime)'
         deploymentMode: 'Incremental'
         deploymentName: 'wvd_demo1_hp_deployment'
@@ -58,4 +58,5 @@ stages:
           csmParametersFile: './wvd-demo-deploy-vms.parameters.json'
           overrideParameters: '-vmAdministratorAccountPassword $(bs-DefaultPassword) -administratorAccountPassword $(bs-DomainAdminPassword) -hostpoolToken $(RdsRegistrationInfotoken)'
           deploymentMode: 'Incremental'
+          deploymentName: 'wvd_demo1_vms_deployment'
         

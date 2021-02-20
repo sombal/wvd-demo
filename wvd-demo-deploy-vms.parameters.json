@@ -9,7 +9,7 @@
             "value": "https://catalogartifact.azureedge.net/publicartifacts/Microsoft.Hostpool-ARM-1.0.22-preview/"
         },
         "hostpoolName": {
-            "value": "wvd-demo-hp1"
+            "value": ""
         },
         "hostpoolToken": {
             "value": null
@@ -27,7 +27,7 @@
             "value": null
         },
         "hostpoolResourceGroup": {
-            "value": "hunaug-wvd-demo1"
+            "value": ""
         },
         "hostpoolProperties": {
             "value": {}
@@ -42,7 +42,7 @@
             "value": 0
         },
         "vmResourceGroup": {
-            "value": "hunaug-wvd-demo1"
+            "value": ""
         },
         "vmLocation": {
             "value": "westeurope"
@@ -51,10 +51,10 @@
             "value": "Standard_B2ms"
         },
         "vmNumberOfInstances": {
-            "value": 2
+            "value": null
         },
         "vmNamePrefix": {
-            "value": "hunaug-wvd"
+            "value": ""
         },
         "vmImageType": {
             "value": "Gallery"
@@ -105,7 +105,7 @@
             "value": {}
         },
         "deploymentId": {
-            "value": "ebd74bdc-3073-4418-9f62-a09282e2c09e"
+            "value": ""
         },
         "apiVersion": {
             "value": "2019-12-10-preview"
